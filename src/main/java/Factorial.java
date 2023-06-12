@@ -18,4 +18,4 @@ public class Factorial {
 // calls itself with n-1 and multiplies the result by n. This process continues until the base case is reached.
 
 //In the example above, we calculate the factorial of the number 5 using the factorial method and print
-// the result. 
+// the result.
