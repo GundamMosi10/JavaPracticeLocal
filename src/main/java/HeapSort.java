@@ -47,4 +47,4 @@ public class HeapSort {
 //The above code demonstrates the implementation of the heap sort algorithm in Java. Heap sort
 // is a comparison based algorithm that uses the binary heap data structure to sort elements.
 // It involves building a max heap from the array and repeatedly extracting the maximum element
-// from the heap to obtain a sorted array. 
+// from the heap to obtain a sorted array.
