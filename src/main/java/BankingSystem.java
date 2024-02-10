@@ -18,13 +18,22 @@ public class BankingSystem {
             System.out.println("Account already exists.");
         }
     }
-    
-    public void viewAccounts(String accountNumber, double accountBalance) {
+
+    public static void viewBalance(String accountNumber) {
         if (accounts.containsKey(accountNumber)) {
-            double currentBalance = accounts.get(accountNumber);
-            System.out.println("Account Balance is: " + currentBalance);
+            double balance = accounts.get(accountNumber);
+            System.out.println("Current balance in account " + accountNumber + ": " + balance);
+        } else {
+            System.out.println("Account does not exist.");
         }
     }
+
+//    public void viewAccounts(String accountNumber, double accountBalance) {
+//        if (accounts.containsKey(accountNumber)) {
+//            double currentBalance = accounts.get(accountNumber);
+//            System.out.println("Account Balance is: " + currentBalance);
+//        }
+//    }
 
     public void deposit(String accountNumber, double amount) {
         if (accounts.containsKey(accountNumber)) {
