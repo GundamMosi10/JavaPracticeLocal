@@ -3,17 +3,26 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class BankingSystem {
-    private Map<String, Double> accounts;
+    private static Map<String, Double> accounts = new HashMap<>();
 
-    public class BankingSystem() {
-        this.accounts = new HashMap<>();
-    }
-    public void createAccount(String accountNumber, double initialBalance) {
+//    public class BankingSystem() {
+//        this.accounts = new HashMap<>();
+//    Have to make a 'view account balance' for the switch case
+//    }
+
+    public static void createAccount(String accountNumber, double initialBalance) {
         if (!accounts.containsKey(accountNumber)) {
             accounts.put(accountNumber, initialBalance);
             System.out.println("Account created successfully.");
         } else {
             System.out.println("Account already exists.");
+        }
+    }
+    
+    public void viewAccounts(String accountNumber, double accountBalance) {
+        if (accounts.containsKey(accountNumber)) {
+            double currentBalance = accounts.get(accountNumber);
+            System.out.println("Account Balance is: " + currentBalance);
         }
     }
 
@@ -92,7 +101,25 @@ public class BankingSystem {
                 double withdrawAmount = scanner.nextDouble();
                 bankingSystem.withdraw(withdrawAccount, withdrawAmount);
                 break;
+
+                case 4: System.out.print("Enter sender account number: ");
+                String senderAccount = scanner.nextLine();
+                System.out.print("Enter recipient account number: ");
+                String recipientAccount = scanner.nextLine();
+                System.out.print("Enter amount to transfer: ");
+                double transferAmount = scanner.nextDouble();
+
+                bankingSystem.transfer(senderAccount, recipientAccount, transferAmount);
+                break;
+
+                case 5:
+                    isRunning = false;
+                    break;
+                default:
+
+                System.out.println("Invalid choice. Please try again.");
             }
         }
+        scanner.close();
     }
 }
