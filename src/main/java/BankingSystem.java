@@ -84,7 +84,8 @@ public class BankingSystem {
             System.out.println("2. Deposit");
             System.out.println("3. Withdraw");
             System.out.println("4. Transfer");
-            System.out.println("5. Exit");
+            System.out.println("5. View Balance");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -117,11 +118,16 @@ public class BankingSystem {
                 String recipientAccount = scanner.nextLine();
                 System.out.print("Enter amount to transfer: ");
                 double transferAmount = scanner.nextDouble();
-
                 bankingSystem.transfer(senderAccount, recipientAccount, transferAmount);
                 break;
 
                 case 5:
+                    System.out.print("Enter account number: ");
+                    String viewAccount = scanner.nextLine();
+                    viewBalance(viewAccount);
+                    break;
+
+                case 6:
                     isRunning = false;
                     break;
                 default:
